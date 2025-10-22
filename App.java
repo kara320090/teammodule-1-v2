@@ -16,11 +16,9 @@ public class App {
         Scanner input = new Scanner(System.in);
         LibraryManagementSystem LibMS = new LibraryManagementSystem();
 
-        // 1. DB 파일 불러오기
         LibDB<User> userDB = LibMS.setUserDB("UserData2025.txt");
         LibDB<Book> bookDB = LibMS.setBookDB("BookData2025.txt");
 
-        // 2. 초기 데이터 출력
         System.out.println("===== 이용자 목록 =====");
         LibMS.printDB(userDB);
         System.out.println();
@@ -28,7 +26,6 @@ public class App {
         LibMS.printDB(bookDB);
         System.out.println();
 
-        // 3. 대출 입력 반복
         while (true) {
             System.out.print("\n대출을 진행하시겠습니까? (Y/N): ");
             String cont = input.nextLine().trim().toUpperCase();
