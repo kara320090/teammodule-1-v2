@@ -51,6 +51,26 @@ public class LibraryManagementSystem{
         return false;
     }
 
+    /**
+     * 이용자 ID를 전달받아 이용자 데이터베이스에서 해당 이용자 객체를 검색하는 메소드이다.
+     * 
+     * @param  userID  검색하고자 하는 이용자의 ID
+     * @return  userID에 해당하는 User 객체를 반환하며, 존재하지 않을 경우 null을 반환한다.
+     */
+    public User findUser(String userID) {
+        return this.userDB.findElement(userID);
+    }
+
+    /**
+     * 책 ID를 전달받아 도서 데이터베이스에서 해당 도서 객체를 검색하는 메소드이다.
+     * 
+     * @param  bookID  검색하고자 하는 도서의 ID
+     * @return  bookID에 해당하는 Book 객체를 반환하며, 존재하지 않을 경우 null을 반환한다.
+     */
+    public Book findBook(String bookID) {
+        return this.bookDB.findElement(bookID);
+    }
+
     /** 
      * @overload
      * 이용자와 책의 id를 String타입으로 전달 받아 대출을 수행하는 메소드를 overload하여 책의 id가 여러개일 경우 ArrayList<String> 타입으로 전달받아 대출을 수행하는 메소드

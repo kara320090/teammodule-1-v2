@@ -39,7 +39,7 @@ public class App {
             System.out.print("이용자 ID 입력: ");
             String userID = input.nextLine().trim();
 
-            User userCheck = LibMS.userDB.findElement(userID);
+            User userCheck = LibMS.findUser(userID);
             if (userCheck == null) {
                 System.out.println("이용자 ID가 존재하지 않습니다: " + userID);
                 continue;
@@ -55,8 +55,7 @@ public class App {
                 if (!t.trim().isEmpty()) {
                     String book = t.trim();
 
-                    // 이미 대출된 책이면 books에 추가시키지 않기
-                    if(LibMS.isBookBorrowed(book)){
+                    if (LibMS.isBookBorrowed(book)) {
                         System.out.println(book + "는 이미 대출된 책입니다");
                         continue;
                     }
