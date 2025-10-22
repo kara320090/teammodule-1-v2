@@ -16,11 +16,10 @@ public class App {
         Scanner input = new Scanner(System.in);
         LibraryManagementSystem LibMS = new LibraryManagementSystem();
 
+        LibDB<User> userDB = LibMS.setUserDB("UserData2025.txt");
+        LibDB<Book> bookDB = LibMS.setBookDB("BookData2025.txt");
 
         while (true) {
-            LibDB<User> userDB = LibMS.setUserDB("UserData2025.txt");
-            LibDB<Book> bookDB = LibMS.setBookDB("BookData2025.txt");
-
             System.out.println("===== 이용자 목록 =====");
             LibMS.printDB(userDB);
             System.out.println();
