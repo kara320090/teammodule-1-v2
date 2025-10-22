@@ -20,10 +20,10 @@ public class App {
         LibDB<Book> bookDB = LibMS.setBookDB("BookData2025.txt");
 
         while (true) {
-            System.out.println("===== 이용자 목록 =====");
+            System.out.println("----- 이용자 목록 -----");
             LibMS.printDB(userDB);
             System.out.println();
-            System.out.println("===== 도서 목록 =====");
+            System.out.println("----- 도서 목록 -----");
             LibMS.printDB(bookDB);
             System.out.println();
             System.out.print("\n대출을 진행하시겠습니까? (Y/N): ");
@@ -75,7 +75,7 @@ public class App {
             LibMS.printLoanList();
         }
 
-        System.out.println("\n===== 프로그램 종료 =====");
+        System.out.println("\n----- 프로그램 종료 -----");
         input.close();
     }
 }
