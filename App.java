@@ -53,7 +53,15 @@ public class App {
             ArrayList<String> books = new ArrayList<String>();
             for (String t : tokens) {
                 if (!t.trim().isEmpty()) {
-                    books.add(t.trim());
+                    String book = t.trim();
+
+                    // 이미 대출된 책이면 books에 추가시키지 않기
+                    if(LibMS.isBookBorrowed(book)){
+                        System.out.println(book + "는 이미 대출된 책입니다");
+                        continue;
+                    }
+
+                    books.add(book);
                 }
             }
 

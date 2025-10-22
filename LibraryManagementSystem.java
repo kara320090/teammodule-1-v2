@@ -30,9 +30,25 @@ public class LibraryManagementSystem{
      */
     public LibraryManagementSystem(){
         this.bookDB = new LibDB<Book>();
-        //this.loanDB = new HashMap<User, Book>();
         this.loanDB = new HashMap<User, ArrayList<Book>>();
         this.userDB = new LibDB<User>();
+    }
+
+    /**
+     * 책의 id를 String타입으로 전달 받아 이미 대출이 되었는지 확인하는 메소드
+     *
+     * @param   책의 대출 여부
+     */
+    public boolean isBookBorrowed(String bookID){
+        for(User user : this.loanDB.keySet()){
+            for(Book book : this.loanDB.get(user)){
+                if(book.getID().equals(bookID)){
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 
     /** 
@@ -61,7 +77,7 @@ public class LibraryManagementSystem{
                 System.out.println("책ID"+bookID + "가 존재하지 않습니다");
                 continue;
             }
-    
+
             // 책 객체가 존재하는 경우에만 대출 데이터 베이스에 정보를 저장
             ArrayList<Book> nowUserBorrowBooks = this.loanDB.get(user);
             nowUserBorrowBooks.add(book);
